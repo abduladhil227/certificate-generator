@@ -4,13 +4,13 @@ var cernum = localStorage.getItem("certNum");
 console.log(cernum);
 
 if (cernum == 1) {
-  defaultCertPNG = "certificates/dummy.png";
+  defaultCertPNG = "certificates/cert1.png";
 } else if (cernum == 2) {
   defaultCertPNG = "certificates/cert2.png";
 } else if (cernum == 3) {
   defaultCertPNG = "certificates/cert3.png";
 } else {
-  if (localStorage.getItem("imgdata") != null) {
+  if (localStorage.getItem("imgdata") === null) {
     var certImg = "certificates/dummy.png";
     defaultCertPNG = certImg;
   } else {
@@ -456,7 +456,7 @@ function handleMouseDown(e) {
 
     if (textHittest(startX, startY, certInputs[i])) {
       // change Cursor to Pointer
-      canvas.style.cursor = "pointer";
+      canvas.style.cursor = "grab";
       selectedElement = certInputs[i];
     }
   }
@@ -592,7 +592,7 @@ downloadZipButton.addEventListener("click", function (e) {
   var zip = new JSZip();
   var count = 0;
   var totalRows = sheetData.length;
-  var zipFilename = "CERRT_SemiKolan.zip";
+  var zipFilename = "bulk_certificates.zip";
   var effectiveDOMs = [];
   var dataIndex = [];
   Inputs.querySelectorAll(".certinputs").forEach(function (input) {
@@ -610,7 +610,7 @@ downloadZipButton.addEventListener("click", function (e) {
     });
     drawTextfromInputs();
 
-    var filename = "Cerrt_" + (i + 1) + ".png";
+    var filename = "Certificate-" + (i + 1) + ".png";
     var src = canvas.toDataURL("image/png");
     // loading a file and add it in a zip file
     JSZipUtils.getBinaryContent(src, function (err, data) {

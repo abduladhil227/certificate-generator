@@ -37,30 +37,4 @@ function viewdata() {
   localStorage.setItem("cerimg", img); 
 }
 
-if(cernum==1)
-{
-  defaultCertPNG = "certificates/dummy.png";
-}
-else if(cernum==2)
-{
-  defaultCertPNG = "certificates/cert2.png";
-}
-else if(cernum==3){
-  defaultCertPNG = "certificates/cert3.png";
-}
-else{
 
-  if (localStorage.getItem("imgdata") === null) {
-    var certImg = "certificates/dummy.png";
-    defaultCertPNG = certImg;
-  }
-  else{
-    
-    var certImg = localStorage.getItem("imgdata");
-    defaultCertPNG = certImg;
-  }
-
-}
-
-var pdf = new jsPDF("l", "mm", "a4");
-pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 300, 220);

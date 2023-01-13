@@ -1212,7 +1212,7 @@
             >Save</md-button
           >
           <a href="../Certificate-Generator/index.html">
-            <button class="button-55" role="button" onclick="canv()">
+            <button class="button-55" role="button" onclick="canv(); certNum(4)">
               NEXT ➡
             </button>
           </a>
@@ -1398,6 +1398,11 @@
             console.log("hai");
           });
       </script>
+      <script>
+        function certNum(num){
+         localStorage.setItem("certNum", num);
+        }
+       </script>
     </div>
   </body>
 </html>

@@ -17,6 +17,11 @@ body {
   color: #fff;
   font-family: "Quicksand", sans-serif;
 }
+#heading {
+  font-family: "Merienda", cursive;
+  color: #fefff2;
+  text-align: center;
+}
 
 header {
   text-align: center;
